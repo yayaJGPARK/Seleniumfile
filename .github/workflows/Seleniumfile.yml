@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  웹자동화테스트:
+  selenium_test:
     runs-on: ubuntu-latest
 
     steps:
