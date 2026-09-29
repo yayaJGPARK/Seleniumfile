@@ -29,7 +29,7 @@ def test_login(driver):
         "identifier"
     )
 
-    email_box.send_keys("jegun1009@gmail.com")
+    email_box.send_keys("email")
 
     email_box.send_keys(Keys.ENTER)
     print("===== 이메일 입력 성공 =====")
