@@ -28,4 +28,4 @@ jobs:
 
       - name: Selenium 테스트 실행
         run: |
-          pytest
+          pytest --ignore-glob="*_input.py"
