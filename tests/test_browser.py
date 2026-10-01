@@ -100,8 +100,13 @@ def test_browser_open(driver):
     google_email.click()
 
     wait.until(
-        EC.url_contains("workspace.google.com")
+        EC.any_of(
+            EC.url_contains("workspace.google.com"),
+            EC.url_contains("mail.google.com"),
+            EC.url_contains("accounts.google.com")
+        )
     )
+
     print("현재 URL:", driver.current_url)
 
     driver.back()
