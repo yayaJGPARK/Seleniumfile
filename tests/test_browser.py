@@ -157,7 +157,7 @@ def test_browser_open(driver):
         EC.element_to_be_clickable(
             (
                 By.CSS_SELECTOR,
-                'a[href*="/intl/"][href*="/ads/"]', ["google.com/intl/"], ["business.google.com"]
+                'a[href*="/intl/"][href*="/ads/"]'
             )
         )
     )
@@ -165,8 +165,9 @@ def test_browser_open(driver):
     google_marketing.click()
 
     wait.until(
-        EC.url_contains("https://business.google.com")
+        EC.url_contains("business.google.com")
     )
+
     print("현재 URL:", driver.current_url)
 
     driver.back()
@@ -176,7 +177,6 @@ def test_browser_open(driver):
             (By.NAME, "q")
         )
     )
-    print("===== 광고 선택 검수완료 =====")
 #################################################################################
 
     google_business = wait.until(

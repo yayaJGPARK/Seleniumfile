@@ -15,7 +15,7 @@ LINK_CASES = [
      ["workspace.google.com", "mail.google.com", "accounts.google.com"]),
     ("이미지", 'a[href^="https://www.google.com/imghp"]', ["/imghp"]),
     # 광고와 비즈니스는 서로 다른 버튼이지만 도착 URL은 동일
-    ("광고", 'a[href*="/intl/"][href*="/ads/"]', ["google.com/intl/"], ["business.google.com"]),
+    ("광고", 'a[href*="/intl/"][href*="/ads/"]', ["google.com/intl/", "business.google.com"]),
     ("비즈니스", 'a[href^="https://www.google.com/services/"]', ["business.google.com"]),
     ("검색의 원리", 'a[href^="https://google.com/search/howsearchworks/"]',
      ["google.com/search/howsearchworks"]),
