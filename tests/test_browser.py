@@ -144,7 +144,7 @@ def test_browser_open(driver):
         EC.element_to_be_clickable(
             (
                 By.CSS_SELECTOR,
-                'a[aria-label="Google 앱"]'
+                'a[aria-label="Google 앱"], a[aria-label="Google apps"]'
             )
         )
     )
@@ -157,7 +157,7 @@ def test_browser_open(driver):
         EC.element_to_be_clickable(
             (
                 By.CSS_SELECTOR,
-                'a[href^="https://www.google.com/intl/"]'
+                'a[href*="/intl/"][href*="/ads/"]', ["google.com/intl/"], ["business.google.com"]
             )
         )
     )
@@ -286,7 +286,7 @@ def test_browser_open(driver):
         EC.element_to_be_clickable(
             (
                 By.XPATH,
-                '//div[text()="설정"]'
+                '//div[contains(text(), "설정") or contains(text(), "Settings")]'
             )
         )
     )

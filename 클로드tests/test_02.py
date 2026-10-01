@@ -15,7 +15,7 @@ LINK_CASES = [
      ["workspace.google.com", "mail.google.com", "accounts.google.com"]),
     ("이미지", 'a[href^="https://www.google.com/imghp"]', ["/imghp"]),
     # 광고와 비즈니스는 서로 다른 버튼이지만 도착 URL은 동일
-    ("광고", 'a[href^="https://www.google.com/intl/"]', ["business.google.com"]),
+    ("광고", 'a[href*="/intl/"][href*="/ads/"]', ["google.com/intl/"], ["business.google.com"]),
     ("비즈니스", 'a[href^="https://www.google.com/services/"]', ["business.google.com"]),
     ("개인정보처리방침", 'a[href^="https://policies.google.com/privacy"]',
      ["policies.google.com/privacy"]),
@@ -75,7 +75,7 @@ def test_google_apps(driver):
     wait = WebDriverWait(driver, 10)
 
     apps = wait.until(EC.element_to_be_clickable(
-        (By.CSS_SELECTOR, 'a[aria-label="Google 앱"]')))
+        (By.CSS_SELECTOR, 'a[aria-label="Google 앱"], a[aria-label="Google apps"]')))
     apps.click()
 
     # 앱 메뉴는 iframe으로 열리므로 실제로 열렸는지 확인
@@ -88,7 +88,7 @@ def test_settings(driver):
     wait = WebDriverWait(driver, 10)
 
     setting = wait.until(EC.element_to_be_clickable(
-        (By.XPATH, '//div[contains(text(), "설정")]')))
+        (By.XPATH, '//div[contains(text(), "설정") or contains(text(), "Settings")]')))
     setting.click()
 
     # 설정 메뉴가 열렸는지 확인 (예: 검색 설정 링크 노출)
